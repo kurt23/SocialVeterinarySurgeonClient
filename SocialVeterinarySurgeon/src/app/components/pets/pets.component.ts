@@ -32,7 +32,7 @@ export class PetsComponent implements OnInit {
   }
 
   delete(petId) {
-    const ans = confirm('Do you want to delete employee with id: ' + petId);
+    const ans = confirm('Are you shure you want to delete this pet?');
     if (ans) {
       this.petService.deletePet(petId).subscribe((data) => {
         this.loadPets();

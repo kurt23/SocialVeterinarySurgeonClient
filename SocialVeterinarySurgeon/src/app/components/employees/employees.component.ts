@@ -24,7 +24,7 @@ export class EmployeesComponent implements OnInit {
   }
 
   delete(employeeId) {
-    const ans = confirm('Do you want to delete employee with id: ' + employeeId);
+    const ans = confirm('Are you shure you want to delete this employee?');
     if (ans) {
       this.employeeService.deleteEmployee(employeeId).subscribe((data) => {
         this.loadEmployees();
