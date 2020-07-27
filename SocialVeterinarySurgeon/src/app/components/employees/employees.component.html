@@ -1,0 +1,31 @@
+<h1>Employees</h1>
+
+<p>
+  <a [routerLink]="['/employee/create']" class="btn btn-primary float-right mb-3">New employee</a>
+</p>
+
+<table class="table table-sm table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>LastName</th>
+      <th>From Media Interactiva</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let employee of (employees$ | async)">
+      <td><a [routerLink]="['/employee/', employee.id]">{{ employee.name }}</a></td>
+      <td>{{ employee.lastName }}</td>
+      <td>
+        <span>{{employee.fromMediaInteractiva ? 'Yes' : 'No' }}</span>  
+      </td>
+      <!-- <td><input type="checkbox" [checked]="employee.fromMediaInteractiva"  disabled/></td> -->
+      <td><a [routerLink]="['/employee/' + employee.id + '/pets']" class="btn btn-primary btn-sm ">Pets</a></td>
+      <td><a [routerLink]="['/employee/edit/', employee.id]" class="btn btn-primary btn-sm ">Edit</a></td>
+      <td><a [routerLink]="" (click)="delete(employee.id)" class="btn btn-danger btn-sm ">Delete</a></td>
+    </tr>
+  </tbody>
+</table>

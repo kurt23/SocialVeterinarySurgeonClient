@@ -1,0 +1,27 @@
+<h1>Pets</h1>
+
+<p>
+  <a [routerLink]="['/pet/create/' + employeeId]" class="btn btn-primary float-right mb-3">New pet</a>
+   <span class="mr-10"></span>
+  <a [routerLink]="['/employees']" class="btn btn-primary float-right mb-3" style="margin-right:20px;">Back</a>
+</p>
+
+
+<table class="table table-sm table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let pet of (pets$ | async)">
+      <td><a [routerLink]="['/pet/', pet.id]">{{ pet.name }}</a></td>
+      <td>{{ pet.type }}</td>
+      <td><a [routerLink]="['/pet/edit/', pet.id]" class="btn btn-primary btn-sm ">Edit</a></td>
+      <td><a [routerLink]="" (click)="delete(pet.id)" class="btn btn-danger btn-sm ">Delete</a></td>
+    </tr>
+  </tbody>
+</table>
